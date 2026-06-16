@@ -25,7 +25,7 @@ def makeItLookNice(n, arr):
 
 def printSample(names, excluded, n, picks=1):
     print("Percentage of the time each player got each draft pick in ", n, " samples")
-    print("Player\t\t  1st     2nd     3rd     4th     5th     6th     7th     8th     9th     10th")
+    print("Player\t\t  1st     2nd     3rd     4th     5th     6th     7th     8th     9th     10th    11th    12th")
     out = np.zeros((len(names), len(names)), dtype="float64")
     for i in range(n):
         order = getOrder(names, excluded, picks)
