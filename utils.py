@@ -15,6 +15,24 @@ def printOrder(names, excluded, seed=None, picks=1):
     for i, n in enumerate(getOrder(names, excluded, picks)):
         print(i+1, ")\t", n)
 
+def getDivisions(names, num_divisions=4):
+    if len(names) % num_divisions != 0:
+        raise ValueError("Team count must divide evenly into divisions")
+    shuffled = random.sample(names, len(names))
+    size = len(names) // num_divisions
+    return [shuffled[i * size:(i + 1) * size] for i in range(num_divisions)]
+
+def printDivisions(names, seed=None, num_divisions=4, labels=None):
+    random.seed(seed)
+    if labels is None:
+        labels = [f"Division {i + 1}" for i in range(num_divisions)]
+    print("\n\nThe official divisions are...\n")
+    for label, division in zip(labels, getDivisions(names, num_divisions)):
+        print(f"{label}:")
+        for name in division:
+            print(f"  - {name}")
+        print()
+
 def makeItLookNice(n, arr):
     n += ":\t"
     if len(n) <= 8: n += "\t"

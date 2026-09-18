@@ -1,41 +1,69 @@
 # It's Fantasy Hockey Time!
 ## Draft Order Generation
 
-This project generates a randomized fantasy hockey draft order with a fixed seed for a reproducible "official" result.
+This project generates a randomized fantasy hockey draft order and divisions with fixed seeds for reproducible "official" results.
 
 ## How it works
 
 - Team names are defined in `draftOrder.py`.
 - `picks=3` means the first 3 picks are drawn from eligible teams first.
 - `last_year_playoff_teams` can be used to block specific teams from top picks.
-- The seeded run provides a deterministic official order.
+- Divisions randomly split all teams into equal groups.
+- Seeded runs provide deterministic official draft order and divisions.
 
 ## Run
 
 `python draftOrder.py`
 
-## 2027 setup
+## 2026-2027 setup (Season 7)
 
 - Teams: Isaac, June, Sam, Andrew, London, Chris D, Chris R, Hannah, Jason, Shashank, Jacob, Tate, Natalie, Madeline, Ezra, Cal
 - Excluded teams: none
-- Seed: `The Mighty Drunks, Season 8`
+- Draft seed: `The Mighty Drunks, Season 7`
+- Divisions seed: `The Mighty Drunks, Season 7 Divisions`
 - Simulations shown before official order: `100000`
 
-## Official 2027 draft order
+## Official 2026-2027 draft order
 
-1. Natalie
-2. Jacob
-3. Chris D
+1. Hannah
+2. Tate
+3. Chris R
 4. Ezra
-5. Chris R
-6. Hannah
-7. June
-8. Shashank
-9. Jason
-10. London
-11. Isaac
-12. Sam
-13. Tate
-14. Cal
-15. Andrew
-16. Madeline
+5. Cal
+6. Isaac
+7. Shashank
+8. Natalie
+9. Chris D
+10. Jacob
+11. Sam
+12. Madeline
+13. June
+14. Andrew
+15. London
+16. Jason
+
+## Official 2026-2027 divisions
+
+### Division 1
+- London
+- Chris D
+- Jacob
+- Sam
+
+### Division 2
+- Natalie
+- Madeline
+- Chris R
+- Andrew
+
+### Division 3
+- Isaac
+- Jason
+- Tate
+- Cal
+
+### Division 4
+- Hannah
+- Shashank
+- June
+- Ezra

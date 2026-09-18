@@ -1,4 +1,4 @@
-from utils import printOrder, printSample
+from utils import printOrder, printSample, printDivisions
 
 # All members of the league
 league_members = ["Isaac", "June", "Sam", "Andrew", "London", "Chris D", "Chris R", "Hannah", "Jason", "Shashank", "Jacob", "Tate", "Natalie", "Madeline", "Ezra", "Cal"]
@@ -11,4 +11,7 @@ printSample(league_members, last_year_playoff_teams, 100000, picks=3)
 
 # Print the official order using a seed
 # this ensures that I couldn't keep generating an order until I got one I liked
-printOrder(league_members, last_year_playoff_teams, picks=3, seed="The Mighty Drunks, Season 8")
+printOrder(league_members, last_year_playoff_teams, picks=3, seed="The Mighty Drunks, Season 7")
+
+# Print the official divisions using a seed
+printDivisions(league_members, seed="The Mighty Drunks, Season 7 Divisions", num_divisions=4)
