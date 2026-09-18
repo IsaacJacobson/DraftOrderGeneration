@@ -1,5 +1,4 @@
 import random
-import numpy as np
 
 def getOrder(names, excluded, picks):    
     names = random.sample(names, len(names))
@@ -23,16 +22,25 @@ def makeItLookNice(n, arr):
         n += str(f'{i:2.2f}').zfill(5) + '%  '
     return n[:-2]
 
+def ordinal(n):
+    if 10 <= n % 100 <= 20:
+        suffix = "th"
+    else:
+        suffix = {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
 def printSample(names, excluded, n, picks=1):
+    import numpy as np
     print("Percentage of the time each player got each draft pick in ", n, " samples")
-    print("Player\t\t  1st     2nd     3rd     4th     5th     6th     7th     8th     9th     10th    11th    12th")
+    header = "Player\t\t  " + "  ".join(f"{ordinal(i+1):<6}" for i in range(len(names)))
+    print(header)
     out = np.zeros((len(names), len(names)), dtype="float64")
     for i in range(n):
         order = getOrder(names, excluded, picks)
         for j, name in enumerate(order):
             out[names.index(name)][j] += 1
     arr = np.divide(out, (n/100))
-    for i, n in enumerate(names):
-        print(makeItLookNice(n, arr[i,:]))
+    for i, name in enumerate(names):
+        print(makeItLookNice(name, arr[i,:]))
     
 
